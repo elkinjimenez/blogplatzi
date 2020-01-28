@@ -14,9 +14,11 @@ const Tareas = () => <div>Hola tareas</div>
 const App = () => (
 
   <BrowserRouter>
-    <Menu/>
-    <Route exact path='/' component={Usuarios} />
-    <Route exact path='/tareas' component={Tareas} />
+    <Menu />
+    <div className="container">
+      <Route exact path='/' component={Usuarios} />
+      <Route exact path='/tareas' component={Tareas} />
+    </div>
   </BrowserRouter>
 
 );
