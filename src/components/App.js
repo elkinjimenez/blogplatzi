@@ -1,63 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Menu from './Menu';
+import Usuarios from './Usuarios';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import "bootstrap-css-only/css/bootstrap.min.css";
+import "mdbreact/dist/css/mdb.css";
+import { MDBBtn, MDBInput, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBIcon, MDBBadge, MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
-class App extends Component {
 
-  constructor() {
+const Tareas = () => <div>Hola tareas</div>
 
-    super();
-    this.state = {
 
-      usuarios: [
-        {
-          nombre: 'Elkin',
-          correo: 'elkin.jiga@hotmail.com',
-          enlace: 'elkin.com'
-        },
-        {
-          nombre: 'Omar',
-          correo: 'omar.jiga@hotmail.com',
-          enlace: 'omar.com'
-        },
-      ]
+const App = () => (
 
-    }
+  <BrowserRouter>
+    <Menu/>
+    <Route exact path='/' component={Usuarios} />
+    <Route exact path='/tareas' component={Tareas} />
+  </BrowserRouter>
 
-  }
-
-  ponerFilas = () => (
-
-    this.state.usuarios.map((usuario) => (
-
-      <tr>
-        <td>{usuario.nombre}</td>
-        <td>{usuario.correo}</td>
-        <td>{usuario.enlace}</td>
-      </tr>
-
-    ))
-
-  )
-
-  render() {
-    return (
-      <div className="margen" >
-        <table className="tabla">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Correo</th>
-              <th>Enlace</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.ponerFilas()}
-          </tbody>
-        </table>
-      </div>
-
-    );
-  }
-
-}
+);
 
 export default App;
