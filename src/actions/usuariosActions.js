@@ -1,9 +1,13 @@
-export const traerTodos = () => (dispactch) => {
+import axios from 'axios';
+
+export const traerTodos = () => async (dispactch) => {
+
+    const respuesta = await axios.get('https://jsonplaceholder.typicode.com/users');
 
     dispactch({
 
         type: 'traer_usuarios',
-        payload: [1, 2, 3],
+        payload: respuesta.data
 
     })
 
