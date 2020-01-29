@@ -19,7 +19,6 @@ export const traerTodos = () => async (dispactch) => {
 
     } catch (error) {
 
-        alert("Error de la URL: " + error.message)
         dispactch({
             type:ERROR,
             payload: error.message
