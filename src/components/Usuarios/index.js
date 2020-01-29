@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Spinner from '../General/Spinner';
 
 import * as usuariosActions from '../../actions/usuariosActions';
 
@@ -7,8 +8,30 @@ class Usuarios extends Component {
 
     componentDidMount() {
 
-
         this.props.traerTodos()
+
+    }
+
+    ponerConenido = () => {
+
+        if (this.props.cargando) {
+            return <Spinner />;
+        }
+
+        return (
+            <table className="table text-center">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Enlace</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.ponerFilas()}
+                </tbody>
+            </table>
+        )
 
     }
 
@@ -28,22 +51,11 @@ class Usuarios extends Component {
 
     render() {
 
-        console.log(this.props)
-
         return (
             <div className="container-fluid my-5" >
-                <table className="table text-center">
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Correo</th>
-                            <th>Enlace</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.ponerFilas()}
-                    </tbody>
-                </table>
+
+                {this.ponerConenido()}
+
             </div>
 
         );
