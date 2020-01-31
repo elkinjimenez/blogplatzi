@@ -6,6 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import { MDBBtn, MDBInput, MDBModal, MDBModalBody, MDBModalHeader, MDBModalFooter, MDBIcon, MDBBadge, MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import Publicaciones from './Publicaciones';
 
 
 const Tareas = () => <div>Hola tareas</div>
@@ -18,6 +19,7 @@ const App = () => (
     <div className="container">
       <Route exact path='/' component={Usuarios} />
       <Route exact path='/tareas' component={Tareas} />
+      <Route exact path='/publicaciones/:key' component={Publicaciones} />
     </div>
   </BrowserRouter>
 
